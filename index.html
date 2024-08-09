@@ -24,15 +24,11 @@
     <input id="files" style="visibility:hidden;" type="file" onchange="showFile(this)" multiple>
   </div>
 
-
-
   <div class="playList" onclick="openModal()">
     ...
   </div>
 
   <div class="modal">
-
-
 
     <div class="modalContent">
 
@@ -42,6 +38,10 @@
 
       <div class="mapList"></div>
 
+      <div class="btnCloceContent">
+        <button class="btn-closeModal" onclick="closeModal()">Закрыть</button>
+      </div>
+
     </div>
   </div>
 
@@ -50,15 +50,12 @@
     </div>
   </div>
 
-
   <div class="contTime">
-    <input class="range" value="" type="range" min="" max="">
+    <input class="range" value="" type="range" min="" max="" onchange="onCangeInput(this.value)">
     <div class="time">
     </div>
 
   </div>
-
-
 
   <div class="play">
     <div onclick="backAudio()">
@@ -70,7 +67,6 @@
           >>
         </div>
     </div>
-
 
     <div class="alert">
       Добавьте аудио, в левом верхнем меню!

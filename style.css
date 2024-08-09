@@ -27,22 +27,20 @@ body {
   left: 0;
   width: 100%;
   height: 100vh;
-  
   z-index: 200;
 }
 
 .modalContent{
   padding: 20px;
-  
   width: 100%;
-  height: 45%;
+  height: 100vh;
   background-color: #12000F;
   border-radius: 15px;
 }
 
 .mapList{
   width: 100%;
-  height: 80%;
+  height: 100%;
   overflow-x: hidden;
 }
 
@@ -60,14 +58,9 @@ body {
   margin-top: 15px;
   margin-bottom: 25px;
   color: white;
-  box-shadow: 0 7px 10px -3px deeppink;
+  box-shadow: 0 5px 10px -5px deeppink;
   padding: 5px;
   transition-duration: 2s
-}
-
-.list:hover{
-  box-shadow: 0 7px 10px -3px red;
-  transition-duration: 2s;
 }
 
 .textListCenter{

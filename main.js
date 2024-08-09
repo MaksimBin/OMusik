@@ -32,21 +32,24 @@ setInterval(() => {
 }, 3000)
 
 
-let playLists = ["/Pirates of the Caribbean - He's a Pirate (Piano Version).mp3"]
+let playLists = []
 
 const showFile = (input) => {
 
   let files = input.files
 
   for (var i = 0; i < files.length; i++) {
-    playLists.push(URL.createObjectURL(files[i]))
+
+    playLists.push(
+    {
+      "url": URL.createObjectURL(files[i]),
+      "name": files[i].name
+    })
   }
 
 }
 
 document.querySelector('.PlayPause').innerHTML = ` <div onclick="audioPlay()">&#10148;</div>`
-
-
 
 let audio = new Audio()
 let numberTrack = 0
@@ -55,6 +58,11 @@ let rengeAudio = 0
 let ren = document.querySelector('.range')
 ren.value = 0
 ren.min = 0
+
+const onCangeInput = (valueCange) => {
+  audio.currentTime = Number(valueCange)
+  rengeAudio = Number(valueCange)
+}
 
 
 let interval
@@ -69,20 +77,14 @@ const audioPlay = () => {
 
   audio.duration = 0
 
-
-  audio.src = playLists[numberTrack]
-
-
+  audio.src = playLists[numberTrack].url
 
   document.querySelector('.PlayPause').innerHTML = ` <div style="transform: rotate(90deg);" onclick="stopAudio()">	&#61;</div>`
 
 
   audio.play()
 
-
   interval = setInterval(() => {
-
-
 
     rengeAudio = rengeAudio + 1
 
@@ -90,7 +92,6 @@ const audioPlay = () => {
 
     ren.max = getMax(audio.duration)
 
-    console.log(rengeAudio, " ", ren.value, " ", ren.max, " ", ren.min)
 
     document.querySelector('.time').innerHTML = toTime(parseInt(audio.duration) - parseInt(audio.currentTime))
 
@@ -102,8 +103,6 @@ const audioPlay = () => {
   }, 1000)
 
 }
-
-
 
 const stopAudio = () => {
 
@@ -185,9 +184,7 @@ const toTime = (seconds) => {
 }
 
 const getMax = (dur) => {
-
   result = parseInt(dur)
-
   return result
 
 }
@@ -195,11 +192,11 @@ const getMax = (dur) => {
 
 const openModal = () => {
 
+  tach()
+
   if (alertAudio()) {
     return
   }
-
-
 
   document.querySelector('.modal').style = "display:flex;"
 
@@ -214,12 +211,12 @@ const openModal = () => {
     
   
   <div class="textListCenter">
-      <div class="h">${x}</div>
+      <div class="h">${x.name}</div>
       <p>Исполнитель</p>
   </div>
 
-  <div class="timeListText">
-    23:00
+  <div class="timeListText" style="color:${getBoxColorList(numberTrack, index)};">
+    ${getStateAudio(numberTrack, index)}
   </div>
   
 </div>
@@ -234,19 +231,37 @@ const closeModal = () => {
 
 
 const plyaList = (indx) => {
-
   numberTrack = indx
   stopAudio()
   audioPlay(indx)
-  closeModal()
+
+  document.querySelector('.mapList').innerHTML = playLists.map((x, index) => `
+  
+  <div class="list" style="box-shadow: 0 5px 10px -5px ${getBoxColorList(numberTrack, index)};" onclick="plyaList(${index})">
+      
+     
+      <div class="numberTextList" style="color:${getBoxColorList(numberTrack, index)};">${index + 1}</div>
+      
+    
+    <div class="textListCenter">
+        <div class="h">${x.name}</div>
+        <p>Исполнитель</p>
+    </div>
+  
+    <div class="timeListText" style="color:${getBoxColorList(numberTrack, index)};">
+      ${getStateAudio(numberTrack, index)}
+    </div>
+    
+  </div>
+  
+    `).join("")
+
 }
 
 
 const alertAudio = () => {
   if (playLists.length == 0) {
     document.querySelector('.alert').style = "display:block;"
-
-
 
     setTimeout(() => {
       document.querySelector('.alert').style = "display:none;"
@@ -258,13 +273,24 @@ const alertAudio = () => {
 
 
 const getBoxColorList = (treckIndex, indexList) => {
-  
+
   if (treckIndex == indexList) {
     return "red"
   }
-  
+
   if (treckIndex !== indexList) {
     return
   }
-  
+
+}
+
+const getStateAudio = (treckIndex, indexList) => {
+
+  if (treckIndex == indexList) {
+    return "играет"
+  }
+
+  if (treckIndex !== indexList) {
+    return "musika"
+  }
 }

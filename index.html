@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OperaPlayer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="preloder">
+    <h1 style="color: deeppink; font-size: 3rem;">OMu<span style="color: gray; font-weight: bold;">sik</span></h1>
+
+    <button class="btn-start" onclick="startOMusik()">Start</button>
+  </div>
+
+  <div class="settings">
+    <label for="files" class="">
+      &#9776
+    </label>
+    <input id="files" style="visibility:hidden;" type="file" onchange="showFile(this)" multiple>
+  </div>
+
+
+
+  <div class="playList" onclick="openModal()">
+    ...
+  </div>
+
+  <div class="modal">
+
+
+
+    <div class="modalContent">
+
+      <div class="logoModal">
+        <h1 onclick="closeModal()" style="color: deeppink; font-size: 3rem;">OMu<span style="color: gray; font-weight: bold;">sik</span></h1>
+      </div>
+
+      <div class="mapList"></div>
+
+    </div>
+  </div>
+
+  <div class="app" onclick="tach()">
+    <div class="app2">
+    </div>
+  </div>
+
+
+  <div class="contTime">
+    <input class="range" value="" type="range" min="" max="">
+    <div class="time">
+    </div>
+
+  </div>
+
+
+
+  <div class="play">
+    <div onclick="backAudio()">
+      << </div>
+
+        <div class="PlayPause"></div>
+
+        <div onclick="nextAudio()">
+          >>
+        </div>
+    </div>
+
+
+    <div class="alert">
+      Добавьте аудио, в левом верхнем меню!
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

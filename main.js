@@ -32,7 +32,7 @@ setInterval(() => {
 }, 3000)
 
 
-let playLists = []
+let playLists = ["/Pirates of the Caribbean - He's a Pirate (Piano Version).mp3"]
 
 const showFile = (input) => {
 
@@ -207,10 +207,10 @@ const openModal = () => {
 
   document.querySelector('.mapList').innerHTML = playLists.map((x, index) => `
 
-<div class="list" onclick="plyaList(${index})">
+<div class="list" style="box-shadow: 0 5px 10px -5px ${getBoxColorList(numberTrack, index)};" onclick="plyaList(${index})">
     
    
-    <div class="numberTextList">${index + 1}</div>
+    <div class="numberTextList" style="color:${getBoxColorList(numberTrack, index)};">${index + 1}</div>
     
   
   <div class="textListCenter">
@@ -238,7 +238,7 @@ const plyaList = (indx) => {
   numberTrack = indx
   stopAudio()
   audioPlay(indx)
-  setTimeout(() => closeModal(),2000)
+  closeModal()
 }
 
 
@@ -254,4 +254,17 @@ const alertAudio = () => {
 
     return true
   }
+}
+
+
+const getBoxColorList = (treckIndex, indexList) => {
+  
+  if (treckIndex == indexList) {
+    return "red"
+  }
+  
+  if (treckIndex !== indexList) {
+    return
+  }
+  
 }

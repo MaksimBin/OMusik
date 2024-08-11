@@ -12,7 +12,7 @@
 <body>
 
   <div class="preloder">
-    <h1 style="color: deeppink; font-size: 3rem;">OMu<span style="color: gray; font-weight: bold;">sik</span></h1>
+    <h1 style="color: deeppink; font-size: 3rem;">OMu<span style="color: gray; font-weight: bold;">sic</span></h1>
 
     <button class="btn-start" onclick="startOMusik()">Start</button>
   </div>
@@ -33,7 +33,7 @@
     <div class="modalContent">
 
       <div class="logoModal">
-        <h1 onclick="closeModal()" style="color: deeppink; font-size: 3rem;">OMu<span style="color: gray; font-weight: bold;">sik</span></h1>
+        <h1 onclick="closeModal()" style="color: deeppink; font-size: 2rem;">PLay<span style="color: gray; font-weight: bold;">list</span></h1>
       </div>
 
       <div class="mapList"></div>
@@ -47,12 +47,16 @@
 
   <div class="app" onclick="tach()">
     <div class="app2">
+      <div class="app3"></div>
     </div>
   </div>
 
   <div class="contTime">
     <input class="range" value="" type="range" min="" max="" onchange="onCangeInput(this.value)">
-    <div class="time">
+    <div class="time"></div>
+    <div class="btn-eculizer" onclick="openEculizer()">
+    
+    <h1 style="color: deeppink; font-size: 1.5rem;">ECu<span style="color: gray; font-weight: bold;">lizer</span></h1>
     </div>
 
   </div>
@@ -70,6 +74,24 @@
 
     <div class="alert">
       Добавьте аудио, в левом верхнем меню!
+    </div>
+
+    <div class="eculizer-content">
+
+
+      <div class="ecBlock">
+        <h1 style="color: deeppink; font-size: 3rem;">OMu<span style="color: gray; font-weight: bold;">sic</span></h1>
+      </div>
+
+      <canvas id="canvas" onclick="closeEculizer()">
+        <div id="2d"></div>
+      </canvas>
+      
+      <div class="ecBlocPult" style="width: 100%; display: flex; justify-content: space-around; align-items: center; color: black; text-shadow: deeppink 0px 0px 2px;font-size: 3.5rem">
+        <div onclick="backAudio()">&laquo;</div>
+        <div onclick="nextAudio()">&raquo;</div>
+      </div>
+
     </div>
 
     <script src="main.js"></script>

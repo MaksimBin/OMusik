@@ -92,7 +92,6 @@ const audioPlay = () => {
  
  if (boolPause) {
    audio.currentTime = audioCurentTime
-   console.log(audio.currentTime, audioCurentTime)
  }
 
   document.querySelector('.PlayPause').innerHTML = ` <div style="transform: rotate(90deg);" onclick="stopAudio()">	&#61;</div>`
@@ -324,8 +323,22 @@ const closeModal = () => {
 
 
 const plyaList = (indx) => {
+  
+  rengeAudio = 0
+  
+  audio.currentTime = 0
+  audioCurentTime = 0
+  
+  audio.duration = 0
+  ren.max = 0
+  
+  boolPause == false
+  
   numberTrack = indx
   stopAudio()
+  
+  
+  
   audioPlay(indx)
 
   document.querySelector('.mapList').innerHTML = playLists.map((x, index) => `

@@ -5,27 +5,35 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>OperaPlayer</title>
+  <title>OMuzik</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
   <div class="preloder">
-    <h1 style="color: deeppink; font-size: 3rem;">OMu<span style="color: gray; font-weight: bold;">sic</span></h1>
+    <h1 style="position: fixed;top: 20px;left: 0; z-index: 100; text-align: center; width: 100%; color: deeppink; font-size: 3rem;">OMu<span style="color: gray; font-weight: bold;">sic</span></h1>
 
-    <button class="btn-start" onclick="startOMusik()">Start</button>
+    <img src="/1454571.svg" alt="" width="60%">
+
+    <div style="position: fixed; bottom: 20px; left: 0; z-index: 100; display: flex; justify-content: center; width: 100%;">
+      <button class="btn-start" onclick="startOMusik()">
+        <span style="color: deeppink;">P</span>LAY
+      </button>
+    </div>
+
+
+
   </div>
 
   <div class="settings">
     <label for="files" class="">
-      &#9776
+      &#9776;
     </label>
     <input id="files" style="visibility:hidden;" type="file" onchange="showFile(this)" multiple>
   </div>
 
-  <div class="playList" onclick="openModal()">
-    ...
+  <div class="playList" onclick="openModal()">...
   </div>
 
   <div class="modal">
@@ -45,18 +53,34 @@
     </div>
   </div>
 
-  <div class="app" onclick="tach()">
-    <div class="app2">
-      <div class="app3"></div>
+  <div style="position: relative;">
+
+    <div class="app3"></div>
+
+    <div class="app" onclick="tach()">
+      <div class="app2">
+      </div>
     </div>
   </div>
+
 
   <div class="contTime">
     <input class="range" value="" type="range" min="" max="" onchange="onCangeInput(this.value)">
     <div class="time"></div>
+
     <div class="btn-eculizer" onclick="openEculizer()">
-    
-    <h1 style="color: deeppink; font-size: 1.5rem;">ECu<span style="color: gray; font-weight: bold;">lizer</span></h1>
+
+      <h1 style="color: deeppink; font-size: 1.5rem;">ECu<span style="color: gray; font-weight: bold;">lizer</span></h1>
+    </div>
+
+    <div class="openCollection" onclick="openCollrctions()">
+      <div style="position: relative; width: 30px; height: 30px;">
+
+        <div style="width: 30px; height: 30px; border: solid 2px darkgray; border-radius: 8px;"></div>
+
+        <div style="position: absolute; top: -7px; right: -9px; width: 30px; height: 30px; border: solid 2px deeppink; border-radius: 8px;"></div>
+
+      </div>
     </div>
 
   </div>
@@ -73,7 +97,7 @@
     </div>
 
     <div class="alert">
-      Добавьте аудио, в левом верхнем меню!
+      Добавьте аудио <br> с устройства!
     </div>
 
     <div class="eculizer-content">
@@ -86,15 +110,93 @@
       <canvas id="canvas" onclick="closeEculizer()">
         <div id="2d"></div>
       </canvas>
-      
-      <div class="ecBlocPult" style="width: 100%; display: flex; justify-content: space-around; align-items: center; color: black; text-shadow: deeppink 0px 0px 2px;font-size: 3.5rem">
+
+      <div class="ecBlocPult" style="width: 100%; display: flex; justify-content: space-around; align-items: center; color: black; text-shadow: deeppink 0px 0px 5px;font-size: 4.5rem;">
         <div onclick="backAudio()">&laquo;</div>
         <div onclick="nextAudio()">&raquo;</div>
       </div>
 
     </div>
 
-    <script src="main.js"></script>
+
+    <div class="moduleSTracks">
+
+      <div class="headerLogoColection">
+        <h1 style="color: deeppink; font-size: 3rem;">COl<span style="color: gray; font-weight: bold;">lections</span></h1>
+      </div>
+
+      <div style="display: flex; justify-content: start; align-items: center; padding-left: 10px; height: 10%;">
+        <input disabled class="inputSearch" type="search" value="трек, альбом...">
+        <!--ЗНАЧЕК ПОИСКА-->
+        <div style="position: relative; width: 30px; height: 30px; border-radius: 50%; border: solid 2px white; margin-bottom: 15px;">
+          <div style="position: absolute; bottom: -22px; right: -9px; width: 1px; height: 25px; border: solid 1px deeppink; transform: rotate(-45deg);"></div>
+        </div>
+        <!--ЗНАЧЕК ПОИСКА-->
+      </div>
+
+
+
+      <div onclick="closeCollrctions()" style="display: flex; justify-content: space-between; align-items: center;padding-right: 5px;">
+        <div style="color: darkgray; font-weight: bold; font-size: 3rem;">
+          &larr;
+        </div>
+        <div style="color: deeppink; text-align: end;">
+          Больше музыки
+        </div>
+      </div>
+
+      <div class="search">
+        <div class="publick">Новинки!</div>
+        <div style="color: darkgrey;" onclick="closeOpenPlaylist()">
+          Все >
+        </div>
+      </div>
+
+      <div class="overflouTracks">
+        <!--------content column----------->
+        <div class="contentColumnState"></div>
+        <!--------content column----------->
+      </div>
+
+      <div style="color: whitesmoke;">
+        Ещё у вас в коллекции
+      </div>
+
+
+      <div class="mainModuleTracks">
+        <div class="moduleElement" onclick="getAppList('love', 'мне нравятся')">
+          <span style="font-size: 2rem;">
+            &#9825;
+          </span>
+        </div>
+        <div class="moduleElement" onclick="getAppList('tel', 'с тел..')">
+          <span>с тел..</span>
+        </div>
+        <div class="moduleElement" onclick="getAppList('club', 'клубная')">
+          <span>Club</span>
+        </div>
+        <div class="moduleElement" onclick="getAppList('pop', 'поп')">
+          <span>Поп</span>
+        </div>
+        <div class="moduleElement" onclick="getAppList('rap', 'реп')">
+          <span>Реп</span>
+        </div>
+        <div class="moduleElement" onclick="getAppList('popular', 'новинки')">
+          <span>Новинки</span>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="loading">
+      <div class="spiner">
+        <div>
+        </div>
+
+ <audio id="audioMp3" src=""></audio>
+
+        <script src="main.js"></script>
 </body>
 
 </html>

@@ -32,7 +32,7 @@ body {
   padding: 20px;
   width: 100%;
   height: 100vh;
-  background-color: #12000F;
+  background-color: #0E0E0E;
   border-radius: 15px;
 }
 
@@ -58,7 +58,7 @@ body {
   margin-top: 15px;
   margin-bottom: 25px;
   color: white;
-  box-shadow: 0 5px 10px -5px deeppink;
+  /* box-shadow: 0 5px 10px -5px deeppink;*/
   padding: 5px;
   transition-duration: 2s
 }
@@ -82,7 +82,7 @@ body {
   color: rgb(211, 211, 211);
 }
 
-.animationText{
+.animationText {
   text-transform: uppercase;
   animation: text 10s infinite linear;
   padding-left: 150%;
@@ -115,14 +115,16 @@ p {
 .btn-closeModal {
   padding: 7px 35px;
   border-style: none;
-  background-color: #12000F;
-  color: floralwhite;
+  background-color: #0E0E0E;
+  color: darkgrey;
   font-size: 1.5rem;
   border-radius: 24px;
-  box-shadow: 0 0 15px 1px deeppink;
+  box-shadow: 0px 0 15px -1px gray;
+  
 }
 
 .preloder {
+  scroll: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -131,7 +133,7 @@ p {
   background-color: black;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   z-index: 100;
 }
@@ -139,8 +141,9 @@ p {
 .btn-start {
   border-style: none;
   background-color: black;
-  color: gray;
+  color: whitesmoke;
   font-size: 3rem;
+  font-weight: bold;
 }
 
 button {
@@ -153,45 +156,56 @@ button {
   width: 300px;
   height: 300px;
   border-radius: 50%;
-  box-shadow: 0 15px 25px 0px white;
+  box-shadow: 0 15px 25px 0px deeppink;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  transition-duration: 3s;
+  transition-duration: 6s;
 }
 
 .app2 {
   width: 250px;
   height: 250px;
   border-radius: 50%;
-  box-shadow: 15px 0 25px 0px white;
+  box-shadow: 15px 0 25px 0px red;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  transition-duration: 3s;
+  transition-duration: 6s;
 }
 
-.app3{
-  width: 1px;
+.app3 {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  /*width: 1px;
   height: 1px;
   border-radius: 50%;
   box-shadow: 0px 0px 50px 50px red;
-  transition-duration: 3s;
+  transition-duration: 3s;*/
+  width: 200px;
+  height: 200px;
+  background-image: url("/42543-e91e63.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  transform: rotate(15deg);
+  transition-duration: 2s;
 }
 
 .app:hover {
   box-shadow: -15px 0 25px 0px cyan;
   transform: rotate(150deg);
-  transition-duration: 5s;
+  transition-duration: 6s;
 }
 
 .app2:hover {
   box-shadow: 0px -15px 25px 0px red;
   transform: rotate(-150deg);
-  transition-duration: 5s;
+  transition-duration: 6s;
 }
 
 .play {
@@ -205,8 +219,9 @@ button {
 
 .playList {
   position: fixed;
-  top: 15px;
+  top: 5px;
   right: 25px;
+  font-size: 2rem;
   color: white;
 }
 
@@ -233,13 +248,21 @@ button {
 
 .btn-eculizer {
   position: absolute;
-  top: -28px;
+  top: -40px;
   right: 43px;
   color: whitesmoke;
   font-size: 25px;
   z-index: 15;
 }
 
+.openCollection {
+  position: absolute;
+  top: -40px;
+  left: 43px;
+  color: whitesmoke;
+  font-size: 25px;
+  z-index: 15;
+}
 
 input[type="range"] {
   accent-color: deeppink;
@@ -254,7 +277,7 @@ input[type="range"] {
 .alert {
   display: none;
   position: fixed;
-  bottom: 15px;
+  bottom: 50vh;
   left: 0;
   margin: 10px;
   width: 95%;
@@ -264,11 +287,12 @@ input[type="range"] {
   box-shadow: 0 0 15px 1px deeppink;
   text-align: center;
   color: deeppink;
+  z-index: 500;
 }
 
 
 
-.eculizer-content{
+.eculizer-content {
   position: fixed;
   top: 0;
   left: -500px;
@@ -282,7 +306,7 @@ input[type="range"] {
   z-index: 500;
 }
 
-.ecBlock{
+.ecBlock {
   position: absolute;
   top: 200px;
   left: 0;
@@ -291,7 +315,7 @@ input[type="range"] {
   justify-content: center;
 }
 
-.ecBlocPult{
+.ecBlocPult {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -300,4 +324,171 @@ input[type="range"] {
 #canvas {
   width: 100%;
   height: 100vh;
+}
+
+.moduleSTracks {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: black;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+  width: 100%;
+  height: 100vh;
+  z-index: 200;
+}
+
+.mainModuleTracks {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.moduleElement {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #171717;
+  border-radius: 8px;
+  margin: 5px;
+  width: 110px;
+  height: 100px;
+  color: whitesmoke;
+  transition-duration: .5s;
+}
+
+.moduleElement:hover {
+  background-color: #2E2E2E;
+  color: whitesmoke;
+  transition-duration: .5s;
+}
+
+.headerLogoColection {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  transition-duration: .8s;
+}
+
+.search {
+  padding: 0 15px;
+  display: flex;
+  justify-content: space-between;
+  color: whitesmoke;
+}
+
+.overflouTracks {
+  width: auto;
+  display: flex;
+
+  white-space: nowrap;
+  color: whitesmoke;
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  scrollbar-color: deeppink deeppink;
+  scrollbar-width: thin;
+
+  scroll-snap-type: x mandatory;
+  scroll-snap-stop: always;
+}
+
+.overflouColumn {
+  margin-right: 10px;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: stretch;
+  scroll-snap-align: start;
+}
+
+.elementOverflou {
+  display: flex;
+  justify-content: space-around;
+  align-items: end;
+  margin-bottom: 10px;
+  width: 40vh;
+  height: 50px;
+  border-radius: 8px;
+  background-color: #171717;
+}
+
+.contentColumnState {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 220px;
+  background-color: black;
+}
+
+.inputSearch {
+  border: 0;
+  outline: 0;
+  border-style: none;
+  width: 80%;
+  height: 40px;
+  padding-left: 15px;
+  color: darkgrey;
+  background-color: black;
+  margin-right: 15px;
+  border: solid 1px white;
+  border-radius: 25px;
+  font-size: 1.2rem;
+}
+
+.inputSearch:focus {
+  outline: 5px;
+  width: 80%;
+  height: 40px;
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  -webkit-appearance: none;
+}
+
+
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background: black;
+  opacity: .8;
+  color: greenyellow;
+  z-index: 900;
+}
+
+.spiner {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  box-shadow: 0 15px 25px 0px deeppink;
+  animation-name: rotation;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
